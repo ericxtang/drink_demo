@@ -1,0 +1,26 @@
+
+%style{:type => "text/css", :media => "screen"}
+  :plain 
+    .right{width:450px; margin:50px; float:right;}
+    .left{width:450px; float:left;}
+    .clear {clear:both;}
+
+%p Eric's Silly App
+
+%div
+  - for object in @objects
+    %div
+      .left
+        %p= object["name"]
+        %img{ 'src' => object["image"]["src_large"]}
+      .left
+        %p Tags:
+        %p= object["tags"].join(", ")
+        %p
+        %p Address:
+        - for loc in object["locations"]
+          %p= loc["line1"]
+      .clear
+        %br
+
+
