@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'httparty'
 require 'json'
-require 'ruby-debug'
 require 'cgi'
 
 get '/basketball' do
@@ -21,7 +20,6 @@ get '/burgers' do
   @tags = ["burgers"]
   response = HTTParty.get("https://api.hyperpublic.com/api/v1/places?client_id=#{@client_id}&client_secret=#{@client_secret}&address=#{CGI::escape(@address)}&q=#{@tags.join(" ")}&limit=5&with_photo=true")
   @objects = JSON.parse(response.body)
-  debugger
   haml :places, :format => :html5
 end
 
