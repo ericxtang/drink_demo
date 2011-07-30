@@ -11,15 +11,15 @@
   - for object in @objects
     %div
       .left
-        %p= object["name"]
-        %img{ 'src' => object["image"]["src_large"]}
+        %p= object["display_name"]
+        %img{ 'src' => object["images"].first["src_large"]}
       .left
         %p Tags:
         %p= object["tags"].join(", ")
         %p
         %p Address:
-        - for loc in object["locations"]
-          %p= loc["line1"]
+        //- for loc in object["locations"]
+        %p= object["locations"].first["address_line1"] if object["locations"] && object["locations"].first
       .clear
         %br
 

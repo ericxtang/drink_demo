@@ -11,8 +11,8 @@
   - for object in @objects
     %div
       .left
-        %p= object["headline"]
-        %img{ 'src' => object["image"]["src_large"]}
+        %p= object["display_name"]
+        %img{ 'src' => object["images"].first["src_large"]}
       .left
         %p Tags:
         %p= object["tags"].join(", ")
